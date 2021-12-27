@@ -25,7 +25,7 @@ def download_hotspots(lng=0.0,lat=0.0,distance=100):
     
     #print('Getting hotspots from api')
     while(cursor):
-        hs_count+=1000
+        
         data=requests.get(url=url+params+'&cursor='+cursor, headers=headers)
         data=data.json()
 
