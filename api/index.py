@@ -25,15 +25,12 @@ def gethotspots(lng,lat,distance,tsa=0.8,tsi=0,isa=0.8,isi=0.5,ica=None,ici='ff0
 
         pnt = kml.newpoint(name=hotspot['name'], coords=[(hotspot['lng'],hotspot['lat'])])
 
-
-
         if online == 'online': # active
             pnt.style.labelstyle.scale=tsa
             pnt.style.iconstyle.scale = isa
             if ica != '':
                 pnt.style.iconstyle.color=ica
         else:   # inactive
-            print('ici',ici)
             pnt.style.iconstyle.scale = isi
             pnt.style.labelstyle.scale=tsi
             pnt.style.iconstyle.color = ici # Red
@@ -43,7 +40,7 @@ def gethotspots(lng,lat,distance,tsa=0.8,tsi=0,isa=0.8,isi=0.5,ica=None,ici='ff0
         pnt.extendeddata.newdata(name='Gain', value=gain, displayname='Antenna Gain')
         pnt.extendeddata.newdata(name='Elevation', value=elevation, displayname='Antenna Elevation')
             
-    print(kml.kml())
+    #print(kml.kml())
     return kml.kml(format=False)
 
 
@@ -85,7 +82,7 @@ class handler(BaseHTTPRequestHandler):
         hotspots=gethotspots(lat=lat,lng=lng,distance=int(alt+dis),tsa=tsa,tsi=tsi,isa=isa,isi=isi,ica=ica,ici=ici)
 
         # send the new kml back to google earth
-        print("before",len(hotspots))
+        #print("before",len(hotspots))
 
         in_memory_zip = BytesIO()
 
@@ -95,7 +92,7 @@ class handler(BaseHTTPRequestHandler):
 
         zf.writestr('hotspots.kml', hotspots)
         zf.close()   
-        print('after',len(in_memory_zip.getvalue()))
+        #print('after',len(in_memory_zip.getvalue()))
         self.wfile.write(in_memory_zip.getvalue())
         return
 
