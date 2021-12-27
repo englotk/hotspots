@@ -4,8 +4,8 @@
 		<name>Helium Hotspot Update</name>
 		<description>Retrieves and adds hotspots in current view. Right click and Refresh to download hotspots.</description>
 		<Link>
-			<href>http://localhost:3000/api?</href>
-			<!-- <href>https://hotspots.vercel.app/api?</href> -->
+			<!-- <href>http://localhost:3000/api?</href> -->
+			<href>https://hotspots.vercel.app/api?</href>
 			<refreshMode>onInterval</refreshMode>
     		<refreshInterval>99999</refreshInterval>
 			<viewRefreshMode>onRequest</viewRefreshMode>
