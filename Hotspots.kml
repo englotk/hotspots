@@ -7,7 +7,6 @@
 			<!-- <href>http://localhost:3000/api?</href> -->
 			<href>https://hotspots.vercel.app/api?</href>
 			<viewRefreshMode>onRequest</viewRefreshMode>
-
 			<!-- TSA - Text Scale Active hotspots float https://developers.google.com/kml/documentation/kmlreference#iconstyle
 				 TSI - Text Scale Inactive hotspots float
 				 ISA - Icon Scale Active float
