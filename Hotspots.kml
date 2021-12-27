@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+	<NetworkLink>
+		<name>Helium Hotspot Update</name>
+		<description>Retrieves and adds hotspots in current view. Right click and Refresh to download hotspots.</description>
+		<Link>
+			<!-- <href>http://localhost:3000/api?</href> -->
+			<href>https://hotspots.vercel.app/api?</href>
+			<viewRefreshMode>onRequest</viewRefreshMode>
+
+			<!-- TSA - Text Scale Active hotspots float https://developers.google.com/kml/documentation/kmlreference#iconstyle
+				 TSI - Text Scale Inactive hotspots float
+				 ISA - Icon Scale Active float
+				 ISI - Icon Scale Inactive float
+				 ICA - Icon Color Active string
+				 ICI - Icon Color Inactive string
+				 DIS - Distance from camera to download hotspots. (Current Altitude + DIS = Radius to download) int  
+				 https://docs.helium.com/api/blockchain/hotspots/#hotspot-location-distance-search
+			-->
+			<viewFormat>BBOX=[bboxWest],[bboxSouth],[bboxEast],[bboxNorth];CAMERA=[cameraAlt];TSA=0.8;TSI=0;ISA=0.8;ISI=0.5;ICA='';ICI=ff0000ff;DIS=0</viewFormat>
+		</Link>
+	</NetworkLink>
+</kml>
