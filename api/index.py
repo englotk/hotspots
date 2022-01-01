@@ -23,8 +23,11 @@ def gethotspots(lng,lat,distance,tsa=0.8,tsi=0,isa=0.8,isi=0.5,ica=None,ici='ff0
         gain=int(hotspot['gain'])
         online=str(hotspot['status']['online'])
 
-        pnt = kml.newpoint(name=hotspot['name'], coords=[(hotspot['lng'],hotspot['lat'])])
-
+        pnt = kml.newpoint(name=hotspot['name'], coords=[(hotspot['lng'],hotspot['lat'],elevation)])
+        #pnt.style.balloonstyle.text="$[description]"
+        #pnt.description="No Annoying Directions"
+        pnt.altitudemode="relativeToGround"
+        pnt.extrude=1
         if online == 'online': # active
             pnt.style.labelstyle.scale=tsa
             pnt.style.iconstyle.scale = isa
@@ -40,7 +43,7 @@ def gethotspots(lng,lat,distance,tsa=0.8,tsi=0,isa=0.8,isi=0.5,ica=None,ici='ff0
         pnt.extendeddata.newdata(name='Gain', value=gain, displayname='Antenna Gain')
         pnt.extendeddata.newdata(name='Elevation', value=elevation, displayname='Antenna Elevation')
             
-    #print(kml.kml())
+    print(kml.kml())
     return kml.kml(format=False)
 
 
